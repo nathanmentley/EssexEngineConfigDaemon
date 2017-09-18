@@ -18,14 +18,6 @@ EssexEngine::Daemons::Config::ConfigDaemon::ConfigDaemon(WeakPointer<Context> _c
 
 EssexEngine::Daemons::Config::ConfigDaemon::~ConfigDaemon() {}
 
-extern "C" {
-    void daemon_init(EssexEngine::Context* context) {
-        context->RegisterDaemon<EssexEngine::Daemons::Config::ConfigDaemon>(
-            new EssexEngine::Daemons::Config::ConfigDaemon(context)
-        );
-    }
-}
-
 int EssexEngine::Daemons::Config::ConfigDaemon::GetBuildNumber() {
 	return build_number;
 }
