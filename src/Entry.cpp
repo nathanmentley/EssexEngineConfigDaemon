@@ -12,7 +12,7 @@
 #include <EssexEngineConfigDaemon/ConfigDaemon.h>
 
 extern "C" {
-    void daemon_init(EssexEngine::Context* context) {
+    void daemon_init(EssexEngine::WeakPointer<EssexEngine::Context> context) {
         context->RegisterDaemon<EssexEngine::Daemons::Config::ConfigDaemon>(
             new EssexEngine::Daemons::Config::ConfigDaemon(context)
         );
