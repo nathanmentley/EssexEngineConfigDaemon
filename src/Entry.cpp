@@ -11,10 +11,19 @@
 
 #include <EssexEngineConfigDaemon/ConfigDaemon.h>
 
+using EssexEngine::Context;
+using EssexEngine::WeakPointer;
+
+using EssexEngine::Daemons::Config::ConfigDaemon;
+
 extern "C" {
-    void daemon_init(EssexEngine::WeakPointer<EssexEngine::Context> context) {
-        context->RegisterDaemon<EssexEngine::Daemons::Config::ConfigDaemon>(
-            new EssexEngine::Daemons::Config::ConfigDaemon(context)
+    void* daemon_init(WeakPointer<Context> context) {
+        ConfigDaemon* daemon = new ConfigDaemon(context);
+
+        context->RegisterDaemon<ConfigDaemon>(
+            daemon
         );
+
+        return daemon;
     }
 }

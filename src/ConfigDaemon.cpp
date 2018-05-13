@@ -12,18 +12,18 @@
 #include <EssexEngineConfigDaemon/ConfigDaemon.h>
 
 EssexEngine::Daemons::Config::ConfigDaemon::ConfigDaemon(WeakPointer<Context> _context):BaseDaemon(_context) {
-	build_number = 12;
-	build_name = "build name";
+    build_number = 12;
+    build_name = "build name";
 }
 
 EssexEngine::Daemons::Config::ConfigDaemon::~ConfigDaemon() {}
 
 int EssexEngine::Daemons::Config::ConfigDaemon::GetBuildNumber() {
-	return build_number;
+    return build_number;
 }
 
 std::string EssexEngine::Daemons::Config::ConfigDaemon::GetBuildName() {
-	return build_name;
+    return build_name;
 }
 
 int EssexEngine::Daemons::Config::ConfigDaemon::GetScreenWidth() {
